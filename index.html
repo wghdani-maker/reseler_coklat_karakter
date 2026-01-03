@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Daftar Reseller Cokelat Karakter</title>
+
+  <style>
+    :root{
+      --bg:#070b18;
+      --card: rgba(255,255,255,.085);
+      --stroke: rgba(255,255,255,.14);
+      --text:#f6f7fb;
+      --muted: rgba(255,255,255,.72);
+      --muted2: rgba(255,255,255,.56);
+      --danger:#ff5a7a;
+      --okbg: rgba(46,204,113,.16);
+      --okbd: rgba(46,204,113,.35);
+      --shadow: 0 24px 80px rgba(0,0,0,.42);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 720px at 10% -10%, rgba(255,180,0,.16), transparent 60%),
+        radial-gradient(1100px 760px at 95% 0%, rgba(124,92,255,.24), transparent 60%),
+        radial-gradient(900px 720px at 45% 110%, rgba(255,90,122,.16), transparent 60%),
+        var(--bg);
+      overflow-x:hidden;
+    }
+
+    /* background movement (very subtle) */
+    .bg{position:fixed; inset:0; pointer-events:none; z-index:-1}
+    .blob{
+      position:absolute;
+      width:560px; height:560px;
+      border-radius:999px;
+      filter: blur(70px);
+      opacity:.18;
+      animation: drift 14s ease-in-out infinite;
+    }
+    .b1{left:-220px; top:-220px; background:#ffb000}
+    .b2{right:-260px; top:40px; background:#7c5cff; animation-duration:16s}
+    .b3{left:28%; bottom:-300px; background:#ff5a7a; animation-duration:18s}
+    @keyframes drift{
+      0%,100%{transform:translate(0,0) scale(1)}
+      50%{transform:translate(34px,-22px) scale(1.05)}
+    }
+
+    .wrap{max-width:1100px; margin:0 auto; padding:28px 16px 60px}
+
+    /* header */
+    .top{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--muted);
+      font-size:12px;
+    }
+    h1{
+      margin:12px 0 10px;
+      font-size:38px;
+      line-height:1.08;
+      letter-spacing:-.02em;
+    }
+    .sub{
+      margin:0;
+      max-width:760px;
+      color: var(--muted);
+      line-height:1.55;
+    }
+    .pills{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .pill{
+      padding:8px 10px;
+      border-radius:12px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--muted);
+      font-size:12px;
+    }
+
+    /* buttons */
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .btn{
+      display:inline-flex; align-items:center; gap:9px;
+      padding:11px 14px;
+      border-radius:16px;
+      text-decoration:none;
+      color:#fff;
+      font-weight:950;
+      font-size:13px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+    }
+    .btn:hover{transform:translateY(-1px); background: rgba(255,255,255,.12); box-shadow: 0 14px 40px rgba(0,0,0,.35)}
+    .btn:active{transform:translateY(0px) scale(.99)}
+    .wa{border-color: rgba(37,211,102,.42)}
+    .fb{border-color: rgba(24,119,242,.42)}
+
+    /* layout */
+    .grid{display:grid; grid-template-columns: 1.22fr .78fr; gap:16px; margin-top:22px}
+    @media(max-width:920px){.grid{grid-template-columns:1fr}}
+    .card{
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius:22px;
+      padding:18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      transform: translateY(10px);
+      opacity:0;
+      transition: transform .55s ease, opacity .55s ease;
+    }
+    .card.in{transform: translateY(0); opacity:1}
+    .card h2{margin:0 0 10px; font-size:16px}
+    .card p{margin:0 0 12px; color: var(--muted2); line-height:1.55}
+
+    /* form */
+    form{display:flex; flex-direction:column; gap:12px}
+    .field{display:flex; flex-direction:column; gap:6px}
+    label{font-size:12px; color: var(--muted)}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.24);
+      color: var(--text);
+      outline:none;
+      transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+    }
+    textarea{min-height:96px; resize:vertical}
+    input:focus, textarea:focus{
+      border-color: rgba(124,92,255,.70);
+      box-shadow: 0 0 0 4px rgba(124,92,255,.18);
+    }
+    input:hover, textarea:hover{transform: translateY(-1px)}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    @media(max-width:520px){.row{grid-template-columns:1fr}}
+
+    .submit{
+      margin-top:4px;
+      padding:13px 14px;
+      border-radius:16px;
+      border:none;
+      cursor:pointer;
+      font-weight:1000;
+      color:#070b18;
+      background: linear-gradient(135deg,#ffb000,#ff5a7a,#7c5cff);
+      transition: transform .15s ease, box-shadow .15s ease;
+      box-shadow: 0 16px 45px rgba(0,0,0,.35);
+    }
+    .submit:hover{transform: translateY(-1px); box-shadow: 0 22px 65px rgba(0,0,0,.45)}
+    .submit:active{transform: translateY(0px) scale(.99)}
+    .note{font-size:12px; color: var(--muted); line-height:1.45}
+    .err{display:none; font-size:12px; color: var(--danger)}
+    .ok{
+      display:none;
+      margin-top:10px;
+      padding:12px;
+      border-radius:16px;
+      background: var(--okbg);
+      border: 1px solid var(--okbd);
+    }
+
+    /* side */
+    .benefits{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px}
+    @media(max-width:520px){.benefits{grid-template-columns:1fr}}
+    .b{
+      padding:12px;
+      border-radius:16px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      transition: transform .15s ease;
+    }
+    .b:hover{transform: translateY(-2px)}
+    .b .t{font-weight:950; font-size:13px; margin-bottom:4px}
+    .b .d{font-size:12px; color: var(--muted); line-height:1.4}
+    .mini{
+      margin-top:12px;
+      padding:12px;
+      border-radius:16px;
+      background: rgba(255,255,255,.06);
+      border: 1px dashed rgba(255,255,255,.18);
+      color: var(--muted);
+      font-size:12px;
+      line-height:1.5;
+    }
+
+    /* FAQ accordion */
+    .faq{
+      margin-top:12px;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+    }
+    .faq summary{
+      list-style:none;
+      cursor:pointer;
+      padding:12px 12px;
+      font-size:13px;
+      font-weight:900;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary .q{color:var(--text)}
+    .faq summary .icon{
+      width:26px;height:26px;border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--muted);
+      flex: 0 0 auto;
+      transition: transform .2s ease;
+    }
+    .faq details[open] summary .icon{transform: rotate(45deg)}
+    .faq .a{
+      padding:0 12px 12px;
+      color: var(--muted);
+      font-size:12px;
+      line-height:1.5;
+    }
+    .faq .divider{
+      height:1px;
+      background: rgba(255,255,255,.10);
+      margin:0;
+      border:0;
+    }
+
+    /* reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      .blob{animation:none}
+      .card{transition:none; transform:none; opacity:1}
+      .btn, .submit, input, textarea, .b, .faq summary .icon{transition:none}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <div class="badge">🍫 Open Reseller • Cokelat Karakter</div>
+        <h1>Daftar Reseller Rumahan</h1>
+        <p class="sub">
+          Isi form singkat. Setelah klik kirim, WhatsApp admin terbuka otomatis dengan pesan pendaftaran yang sudah rapi.
+        </p>
+
+        <div class="pills">
+          <div class="pill">✅ Data mudah</div>
+          <div class="pill">📦 Cocok pemula</div>
+          <div class="pill">💬 Follow-up via WhatsApp</div>
+          <div class="pill">🚚 Pengiriman ke seluruh Indonesia</div>
+        </div>
+
+        <div class="actions">
+          <a class="btn wa" id="btnWA" href="#" target="_blank">💬 WhatsApp</a>
+          <a class="btn fb" id="btnFB" href="#" target="_blank">📘 Facebook</a>
+        </div>
+      </div>
+
+      <div class="badge">⏱ Pendaftaran ± 1 menit</div>
+    </div>
+
+    <div class="grid">
+      <section class="card" id="cardForm">
+        <h2>Form Pendaftaran</h2>
+        <p>Mohon isi data yang benar agar proses lancar.</p>
+
+        <form id="f" novalidate>
+          <div class="field">
+            <label>Nama lengkap *</label>
+            <input id="nama" placeholder="Contoh: Siti Nurhaliza" />
+            <div class="err" id="e-nama">Nama wajib diisi.</div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label>No. WhatsApp *</label>
+              <input id="wa" inputmode="tel" placeholder="Contoh: 0812xxxxxxx" />
+              <div class="err" id="e-wa">No. WA minimal 10 digit.</div>
+            </div>
+            <div class="field">
+              <label>Kota / Domisili *</label>
+              <input id="kota" placeholder="Contoh: Bandung" />
+              <div class="err" id="e-kota">Kota wajib diisi.</div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Alamat lengkap *</label>
+            <textarea id="alamat" placeholder="Jalan, RT/RW, Kelurahan, Kecamatan, Kota, Kode Pos"></textarea>
+            <div class="err" id="e-alamat">Alamat minimal 10 karakter.</div>
+          </div>
+
+          <button class="submit" type="submit">Kirim & Chat Admin</button>
+          <div class="note">
+            Dengan mengirim, kamu setuju dihubungi via WhatsApp untuk info katalog, harga reseller, dan cara order.
+          </div>
+
+          <div class="ok" id="ok">✅ Pendaftaran berhasil</div>
+        </form>
+      </section>
+
+      <aside class="card" id="cardInfo">
+        <h2>Info Reseller</h2>
+
+        <div class="benefits">
+          <div class="b"><div class="t">Harga reseller</div><div class="d">Lebih hemat untuk jual ulang.</div></div>
+          <div class="b"><div class="t">Mudah mulai</div><div class="d">Bisa mulai dari order kecil.</div></div>
+          <div class="b"><div class="t">Produk unik</div><div class="d">Cokelat karakter lucu & giftable.</div></div>
+          <div class="b"><div class="t">Respons cepat</div><div class="d">Konfirmasi via WhatsApp.</div></div>
+        </div>
+
+        <div class="mini">
+          <b>Pengiriman</b><br/>
+          🚚 Menerima pengiriman ke seluruh Indonesia (ekspedisi menyesuaikan domisili).
+        </div>
+
+        <!-- FAQ SINGKAT -->
+        <div class="faq" aria-label="FAQ Singkat">
+          <details>
+            <summary>
+              <span class="q">Minimal order berapa?</span>
+              <span class="icon">+</span>
+            </summary>
+            <div class="a">Admin akan infokan paket reseller & minimal order saat kamu chat.</div>
+          </details>
+          <hr class="divider">
+          <details>
+            <summary>
+              <span class="q">Dapat katalog & harga reseller?</span>
+              <span class="icon">+</span>
+            </summary>
+            <div class="a">Ya, setelah daftar admin kirim katalog varian dan harga reseller.</div>
+          </details>
+          <hr class="divider">
+          <details>
+            <summary>
+              <span class="q">Pengiriman pakai ekspedisi apa?</span>
+              <span class="icon">+</span>
+            </summary>
+            <div class="a">Menyesuaikan domisili (contoh: J&T/JNE/SiCepat, dll).</div>
+          </details>
+          <hr class="divider">
+          <details>
+            <summary>
+              <span class="q">Bisa mulai tanpa stok banyak?</span>
+              <span class="icon">+</span>
+            </summary>
+            <div class="a">Bisa. Kamu bisa mulai dari order kecil dulu sesuai paket.</div>
+          </details>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    // ===== GANTI INI SAJA =====
+    const ADMIN_WA = "6285290381627"; // contoh: 6281234567890 (tanpa +)
+    const FACEBOOK_URL = "https://www.facebook.com/coklatkarakterunik7?locale=id_ID";
+    // =========================
+
+    document.getElementById("btnWA").href = `https://wa.me/${ADMIN_WA}`;
+    document.getElementById("btnFB").href = FACEBOOK_URL;
+
+    // tampilkan kartu dengan halus saat terlihat
+    const cards = [document.getElementById("cardForm"), document.getElementById("cardInfo")];
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("in"); });
+    }, {threshold:0.12});
+    cards.forEach(c => obs.observe(c));
+
+    // form logic
+    const $ = (id) => document.getElementById(id);
+    const digitsOnly = (s) => (s || "").replace(/\D/g, "");
+    const show = (id, yes) => ($(id).style.display = yes ? "block" : "none");
+
+    function validate(){
+      const nama = $("nama").value.trim();
+      const wa = digitsOnly($("wa").value);
+      const kota = $("kota").value.trim();
+      const alamat = $("alamat").value.trim();
+
+      const okNama = nama.length >= 2;
+      const okWa = wa.length >= 10;
+      const okKota = kota.length >= 2;
+      const okAlamat = alamat.length >= 10;
+
+      show("e-nama", !okNama);
+      show("e-wa", !okWa);
+      show("e-kota", !okKota);
+      show("e-alamat", !okAlamat);
+
+      return { ok: okNama && okWa && okKota && okAlamat, nama, wa, kota, alamat };
+    }
+
+    $("f").addEventListener("submit", (e) => {
+      e.preventDefault();
+      $("ok").style.display = "none";
+
+      const v = validate();
+      if (!v.ok) return;
+
+      const text =
+`Halo Admin, saya mau daftar reseller cokelat karakter.
+
+Nama: ${v.nama}
+WA: ${v.wa}
+Kota: ${v.kota}
+Alamat: ${v.alamat}`;
+
+      $("ok").style.display = "block";
+      window.open(`https://wa.me/${ADMIN_WA}?text=${encodeURIComponent(text)}`, "_blank");
+    });
+  </script>
+</body>
+</html>
